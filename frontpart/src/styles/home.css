@@ -1,0 +1,43 @@
+.home-container {
+    min-height: 100vh;
+    background-color: #f5f5f5;
+}
+
+.home-nav {
+    background-color: #333;
+    color: white;
+    padding: 1rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.home-nav h1 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.logout-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}
+
+.home-content {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.home-content h2 {
+    color: #333;
+    margin-bottom: 1.5rem;
+}
