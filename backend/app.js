@@ -3,8 +3,12 @@ const mongoose = require('mongoose');
 const path = require('path');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
+const http = require('http');
 const app = express();
+const server = http.createServer(app);
+const initializeSocket = require('./socket/socket');
 const userRoutes = require('./routes/user');
+const chatRoutes = require('./routes/chat');
 // dot env configuration
 require('dotenv').config();
 
@@ -45,6 +49,10 @@ mongoose.connect(MONGODB_URI)
 
 // Routes
 app.use('/user', userRoutes);
+app.use('/chat', chatRoutes);
+
+// Initialize Socket.IO
+const io = initializeSocket(server);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -64,6 +72,6 @@ app.use((req, res) => {
 });
 
 // Start the server
-    app.listen(PORT, () => {
-       console.log(`🚀 Server running at: http://localhost:${PORT}`);
-    });
+server.listen(PORT, () => {
+    console.log(`🚀 Server running at: http://localhost:${PORT}`);
+});
